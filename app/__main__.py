@@ -35,8 +35,6 @@ def preprocessa_dataframe(df):
             df[col] = pd.to_numeric(df[col], errors="coerce")
     return df
 
-
-
 def analisa_acoes(df):
     """Analisa as ações e calcula os preços justos de acordo com Graham e Bazin."""
     acoes = df["Ativo"].unique()
@@ -75,6 +73,7 @@ def analisa_acoes(df):
         resultados.append({
             "Ativo": ativo,
             "Preço Atual": f"R$ {preco_atual:.2f}",
+            "DY": f"{dy * 100}%",
             "Preço Graham": f"R$ {preco_graham:.2f}",
             "Preço Bazin": f"R$ {preco_bazin:.2f}",
             "Recomendação": recomendacao
